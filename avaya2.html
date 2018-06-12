@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+<!-- links:
+generateur de pattern:
+https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
+https://mw18.mwconf.org/paper/the-portarble-museum-developing-augmented-reality-for-the-web-using-ar-js/
+https://github.com/aframevr/aframe/tree/master/dist
+https://aframe.io/docs/0.8.0/components/text.html
+http://www.greentoken.de/onlineconv/
+https://www.tinkercad.com/things/h2dKYzjaA79-cadenas/editv2
+-->
+<!-- creation de la scene avec en parametre d'entree la webcam-->
+<a-scene embedded artoolkit='sourceType: webcam;'>
+<!-- chargement du modele 3d du cadenas-->
+<a-obj-model src="avaya.obj" mtl="avaya.obj.mtl" position="-0.2 0 0" rotation="-180 0 0" scale="0.03 0.03 0.03"></a-obj-model>
+<!--chargement du texte a afficher-->
+<a-text color="red" align="center" baseline="bottom" position="0 -5 0" rotation="-90 0 0" value="Hello, Raider2!"></a-text>
+<!--reconnaissance du pattern l'image "qr code" du cadenas-->
+<a-marker-camera preset='custom' type='pattern' url='http://ericgimenez.free.fr/cadenas.patt'></a-marker-camera>
+</a-scene>
+</body>
+</html>
