@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+<!-- creation de la scene avec en parametre d'entree la webcam-->
+<a-scene embedded arjs='sourceType: webcam;'>
+<!-- chargement du modele 3d du cadenas-->
+<a-obj-model src="tinker.obj" mtl="tinker.obj.mtl" position="-0.2 0 0" rotation="-180 0 0" scale="0.03 0.03 0.03"></a-obj-model>
+<!--chargement du texte a afficher-->
+<a-text color="red" align="center" baseline="bottom" position="0.045 0.602 -1.172" rotation="-90 0 0" value="Hello, Raider!"></a-text>
+<!--reconnaissance du pattern l'image "qr code" du cadenas-->
+<a-marker-camera preset='custom' type='pattern' url='http://ericgimenez.free.fr/cadenas.patt'></a-marker-camera>
+</a-scene>
+</body>
+</html>
