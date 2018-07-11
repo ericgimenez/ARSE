@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene embedded artoolkit='sourceType: webcam;'>
+<!--	<a-assets>
+    <img id="fond" src="sky.jpg">
+  </a-assets>
+-->
+
+      <a-sky src="#fond"></a-sky>
+	  <a-obj-model src=".\baseDE\tinker.obj" mtl=".\baseDE\obj.mtl" position="0 0 -3.5" rotation="-90 180 0" scale="0.05 0.05 0.05"></a-obj-model>
+	  <a-obj-model src=".\logoSE\tinker.obj" mtl=".\logoSE\obj.mtl" position="0.562 0.5 -2.143" rotation="0 0 0" scale="0.015 0.015 0.015">
+  <a-animation attribute="rotation"
+               dur="10000"
+               fill="none"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+	  </a-obj-model>
+ <!--     <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-video src="video.mp4" position="0 5 -5" scale=" 5 5 0"></a-video>
+-->
+	</a-scene>
+  </body>
+</html>
