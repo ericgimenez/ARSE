@@ -1,0 +1,99 @@
+
+<html>
+
+<head>
+  <title>Augmented Reality</title>
+
+  <script type="text/javascript" src="js/three.js"></script> 
+
+  <script type="text/javascript" src="js/svd.js"></script> 
+  <script type="text/javascript" src="js/posit1.js"></script> 
+  <script type="text/javascript" src="js/cv.js"></script> 
+  <script type="text/javascript" src="js/aruco.js"></script> 
+
+  <script type="text/javascript" src="js/3DMAR.js"></script> 
+  
+  <!--
+  <script type="text/javascript" src="js/3DM.js"></script> 
+  <script type="text/javascript" src="js/3DMAR.js"></script> 
+  -->
+	
+  <script>
+    var M3D_mRenderer;
+    var M3D_mScene;
+    var M3D_mCamera;
+    var model;
+    var step = 0.0;
+
+    var modelSize = 35.0; //millimeters
+	
+	//_______________________________________________________________________________
+    function onLoad()
+	{
+		M3DAR_InitThreeJsForAR(true, false, modelSize);
+
+		// Création des scenes possibles
+		model = createModel_48();
+		M3D_mScene.add(model);
+		M3DAR_AddGroup(48, model);
+		
+		model = createModel_100();
+		M3D_mScene.add(model);
+		M3DAR_AddGroup(100, model);
+		
+		M3DAR_Animate();
+    }
+	
+	//_______________________________________________________________________________
+    function createModel_48()
+	{
+      var object = new THREE.Object3D();
+
+      var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+      var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+      var mesh = new THREE.Mesh(geometry, material);
+      object.add(mesh);
+
+      var geometry = new THREE.SphereGeometry(0.2, 15, 15);
+      var material = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+      var mesh = new THREE.Mesh(geometry, material);
+	  mesh.position.x = 1;
+      object.add(mesh);
+      
+      return object;
+    };
+
+	//_______________________________________________________________________________
+    function createModel_100()
+	{
+      var object = new THREE.Object3D();
+
+      var geometry = new THREE.SphereGeometry(0.3, 15, 15);
+      var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      var mesh = new THREE.Mesh(geometry, material);
+      object.add(mesh);
+
+      var geometry = new THREE.SphereGeometry(0.2, 15, 15);
+      var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      var mesh = new THREE.Mesh(geometry, material);
+	  mesh.position.x = 1;
+      object.add(mesh);
+      
+      return object;
+    };
+
+	//_______________________________________________________________________________
+    window.onload = onLoad;
+	
+  </script>
+
+</head>
+
+<body style="text-align: center; font-family: monospace;">
+
+  <video id="video" width=1024 height=768 autoplay="true" style="display:none;"></video>
+  <canvas id="canvas" style="width: 1024px; height: 768px; float: left; border: solid 1px black; display:none;"></canvas>
+
+</body>
+  
+</html>
